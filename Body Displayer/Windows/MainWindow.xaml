@@ -1,0 +1,27 @@
+﻿<Window x:Class="Kinect2.BodyDisplayer.gui.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Kinect II - Body Displayer" Height="600" Width="1000">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="25" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
+        <!-- _________________________ status text _________________________-->
+        <StatusBar Grid.Row="0" HorizontalAlignment="Stretch" Name="statusBar" VerticalAlignment="Bottom" Background="White" >
+            <StatusBarItem Content="{Binding StatusText}" Name="prout" HorizontalContentAlignment="Center" FontSize="14" FontWeight="Bold" />
+        </StatusBar>
+        <!-- _________________________ images ______________________________-->
+        <Grid ClipToBounds="True" Grid.Row="1" Margin="10 10" Background="LightGray">
+            <!-- image from the camera-->
+            <Image Name="cameraDisplayImage" HorizontalAlignment="Center" Stretch="Uniform" />
+            <!-- image where to draw the skeleton: it is rendered on top of the camera image and should be the same size-->
+            <Image x:Name="bodyDrawingImage" Source="{Binding BodyDrawingImage}" HorizontalAlignment="Center" Stretch="Uniform" />
+        </Grid>
+        <!-- ________________________ show console button __________________-->
+        <Grid Grid.Row="2">
+            <Button Padding="13 3" Margin="10"  Content="Show Console Window" Click="_Console_Button_Click" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+        </Grid>
+    </Grid>
+</Window>
